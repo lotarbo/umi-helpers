@@ -1,0 +1,20 @@
+{
+    "name": "lotarbo/umi-helpers",
+    "description": "Helpers for UMI.CMS",
+    "type": "library",
+    "require": {
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lotarev Bogdan",
+            "email": "bogdanlotar@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "minimum-stability": "dev"
+}
