@@ -49,30 +49,18 @@ if (! function_exists('render')) {
     /**
      * Рендерит шаблон $template. Аналог $umiTemplaterPHP->render();
      *
-     * @param string|array $data
-     * @param string $template
-     * @param string $type
+     * @param string|array $data данные для шаблона
+     * @param string $template файл шаблона
+     * @param string $type тип шаблонизатора
+     * @param mixed $templatesSource источник шаблонов
      *
      * @return string
      *
      * @throws coreException
      */
-    function render($data, $template, $type = 'php')
+    function render($data, $template, $type = 'php', $templatesSource = null)
     {
-        switch ($type) {
-            case "php":
-                $engine = new umiTemplaterPHP();
-                break;
-            case "tpl":
-                $engine = new umiTemplaterTPL();
-                break;
-            case "xslt":
-                $engine = new umiTemplaterXSLT();
-                break;
-            default:
-                throw new coreException("Invalide engine type: $type");
-        }
-
+        $engine = umiTemplater::create($type, $templatesSource);
         return $engine->render($data, $template);
     }
 }
